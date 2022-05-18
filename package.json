@@ -1,5 +1,6 @@
 {
-  "name": "projen",
+  "name": "@functionless/projen",
+  "description": "projen templates for Functionless projects",
   "scripts": {
     "build": "npx projen build",
     "bump": "npx projen bump",
@@ -22,22 +23,31 @@
     "projen": "npx projen"
   },
   "devDependencies": {
+    "@types/fs-extra": "^9.0.13",
     "@types/jest": "^27.5.1",
     "@types/node": "^14",
     "@typescript-eslint/eslint-plugin": "^5",
     "@typescript-eslint/parser": "^5",
     "eslint": "^8",
+    "eslint-config-prettier": "^8.5.0",
     "eslint-import-resolver-node": "^0.3.6",
     "eslint-import-resolver-typescript": "^2.7.1",
     "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "fs-extra": "^10.1.0",
     "jest": "^27",
     "jest-junit": "^13",
     "json-schema": "^0.4.0",
     "npm-check-updates": "^12",
+    "prettier": "^2.6.2",
     "projen": "^0.56.16",
     "standard-version": "^9",
     "ts-jest": "^27",
     "typescript": "^4.6.4"
+  },
+  "peerDependencies": {
+    "fs-extra": "^10.1.0",
+    "projen": "^0.56.16"
   },
   "main": "lib/index.js",
   "license": "Apache-2.0",
