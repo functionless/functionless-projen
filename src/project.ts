@@ -31,7 +31,7 @@ class SampleCode extends Component {
   }
 
   public synthesize() {
-    const outdir = this.project.outdir;
+    const outdir = this.appProject.outdir;
     const srcdir = path.join(outdir, this.appProject.srcdir);
     if (
       fs.pathExistsSync(srcdir) &&

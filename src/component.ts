@@ -13,17 +13,17 @@ export class Functionless extends Component {
   ];
   static readonly devDependencies = ["ts-patch"];
 
-  constructor(readonly project: TypeScriptProject) {
-    super(project);
+  constructor(readonly tsProject: TypeScriptProject) {
+    super(tsProject);
 
-    this.project.addDevDeps(...Functionless.devDependencies);
-    this.project.addDeps(...Functionless.dependencies);
+    this.tsProject.addDevDeps(...Functionless.devDependencies);
+    this.tsProject.addDeps(...Functionless.dependencies);
 
     // TODO: when optional?
-    if (this.project.tsconfig) {
+    if (this.tsProject.tsconfig) {
       // https://github.com/projen/projen/issues/1482
       // TODO: type
-      const compilerOptions = this.project.tsconfig.compilerOptions as any;
+      const compilerOptions = this.tsProject.tsconfig.compilerOptions as any;
       const plugins: any[] = compilerOptions.plugins ?? [];
 
       plugins.push({
@@ -33,7 +33,7 @@ export class Functionless extends Component {
       compilerOptions.plugins = plugins;
     }
 
-    this.project.addTask("prepare", {
+    this.tsProject.addTask("prepare", {
       exec: "ts-patch install -s",
     });
   }
