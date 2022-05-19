@@ -27,7 +27,7 @@ yarn add -D @functionless/projen
 Then apply the `Functionless` component to your project.
 
 ```js
-const { TypescriptProject } = require("projen-eventual");
+const { TypescriptProject } = require("projen");
 const { Functionless } = require("@functionless/projen");
 
 const project = new TypescriptProject({
