@@ -49,10 +49,6 @@
       "type": "build"
     },
     {
-      "name": "fs-extra",
-      "type": "build"
-    },
-    {
       "name": "jest-junit",
       "version": "^13",
       "type": "build"
@@ -60,6 +56,22 @@
     {
       "name": "jest",
       "version": "^27",
+      "type": "build"
+    },
+    {
+      "name": "jsii",
+      "type": "build"
+    },
+    {
+      "name": "jsii-diff",
+      "type": "build"
+    },
+    {
+      "name": "jsii-docgen",
+      "type": "build"
+    },
+    {
+      "name": "jsii-pacmak",
       "type": "build"
     },
     {
@@ -95,7 +107,7 @@
     },
     {
       "name": "fs-extra",
-      "type": "peer"
+      "type": "bundled"
     },
     {
       "name": "projen",
