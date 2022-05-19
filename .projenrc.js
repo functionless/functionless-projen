@@ -4,6 +4,7 @@ const project = new typescript.TypeScriptProject({
   name: "@functionless/projen",
   description: "projen templates for Functionless projects",
   releaseToNpm: true,
+  npmAccess: "public",
 
   peerDeps: ["fs-extra", "projen"],
   devDeps: ["@types/fs-extra", "projen"],
