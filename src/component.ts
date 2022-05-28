@@ -7,11 +7,15 @@ import { TypeScriptProject } from "projen/lib/typescript";
  */
 export class Functionless extends Component {
   static readonly coreDependency = "functionless";
+  static readonly languageServiceDependency = "@functionless/language-service";
   static readonly dependencies = [
     Functionless.coreDependency,
     "@aws-cdk/aws-appsync-alpha",
   ];
-  static readonly devDependencies = ["ts-patch"];
+  static readonly devDependencies = [
+    "ts-patch",
+    Functionless.languageServiceDependency,
+  ];
 
   constructor(readonly tsProject: TypeScriptProject) {
     super(tsProject);
@@ -28,6 +32,9 @@ export class Functionless extends Component {
 
       plugins.push({
         transform: `${Functionless.coreDependency}/lib/compile`,
+      });
+      plugins.push({
+        name: Functionless.languageServiceDependency,
       });
 
       compilerOptions.plugins = plugins;

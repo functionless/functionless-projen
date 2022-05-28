@@ -101,6 +101,7 @@ public readonly tsProject: TypeScriptProject;
 | <code><a href="#@functionless/projen.Functionless.property.coreDependency">coreDependency</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#@functionless/projen.Functionless.property.dependencies">dependencies</a></code> | <code>string[]</code> | *No description.* |
 | <code><a href="#@functionless/projen.Functionless.property.devDependencies">devDependencies</a></code> | <code>string[]</code> | *No description.* |
+| <code><a href="#@functionless/projen.Functionless.property.languageServiceDependency">languageServiceDependency</a></code> | <code>string</code> | *No description.* |
 
 ---
 
@@ -131,6 +132,16 @@ public readonly devDependencies: string[];
 ```
 
 - *Type:* string[]
+
+---
+
+##### `languageServiceDependency`<sup>Required</sup> <a name="languageServiceDependency" id="@functionless/projen.Functionless.property.languageServiceDependency"></a>
+
+```typescript
+public readonly languageServiceDependency: string;
+```
+
+- *Type:* string
 
 ---
 

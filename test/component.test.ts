@@ -29,5 +29,6 @@ test("add dependency and ts plugin", () => {
   expect((project.tsconfig!.compilerOptions as any).plugins).toEqual([
     { transform: "some other transform" },
     { transform: `${Functionless.coreDependency}/lib/compile` },
+    { name: Functionless.languageServiceDependency },
   ]);
 });
