@@ -1,6 +1,662 @@
 # API Reference <a name="API Reference" id="api-reference"></a>
 
 
+## Structs <a name="Structs" id="Structs"></a>
+
+### TypeScriptCompilerOptionsExtended <a name="TypeScriptCompilerOptionsExtended" id="@functionless/projen.TypeScriptCompilerOptionsExtended"></a>
+
+Extends the {@link TypeScriptCompilerOptions} interface with the {@link plugins} property for configuring Language Service Plugins and ts-patch plugins.
+
+> [https://github.com/projen/projen/issues/1482](https://github.com/projen/projen/issues/1482)
+
+#### Initializer <a name="Initializer" id="@functionless/projen.TypeScriptCompilerOptionsExtended.Initializer"></a>
+
+```typescript
+import { TypeScriptCompilerOptionsExtended } from '@functionless/projen'
+
+const typeScriptCompilerOptionsExtended: TypeScriptCompilerOptionsExtended = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@functionless/projen.TypeScriptCompilerOptionsExtended.property.allowJs">allowJs</a></code> | <code>boolean</code> | Allow JavaScript files to be compiled. |
+| <code><a href="#@functionless/projen.TypeScriptCompilerOptionsExtended.property.allowSyntheticDefaultImports">allowSyntheticDefaultImports</a></code> | <code>boolean</code> | Allow default imports from modules with no default export. |
+| <code><a href="#@functionless/projen.TypeScriptCompilerOptionsExtended.property.alwaysStrict">alwaysStrict</a></code> | <code>boolean</code> | Ensures that your files are parsed in the ECMAScript strict mode, and emit “use strict” for each source file. |
+| <code><a href="#@functionless/projen.TypeScriptCompilerOptionsExtended.property.baseUrl">baseUrl</a></code> | <code>string</code> | Lets you set a base directory to resolve non-absolute module names. |
+| <code><a href="#@functionless/projen.TypeScriptCompilerOptionsExtended.property.declaration">declaration</a></code> | <code>boolean</code> | To be specified along with the above. |
+| <code><a href="#@functionless/projen.TypeScriptCompilerOptionsExtended.property.declarationDir">declarationDir</a></code> | <code>string</code> | Offers a way to configure the root directory for where declaration files are emitted. |
+| <code><a href="#@functionless/projen.TypeScriptCompilerOptionsExtended.property.emitDecoratorMetadata">emitDecoratorMetadata</a></code> | <code>boolean</code> | Enables experimental support for decorators, which is in stage 2 of the TC39 standardization process. |
+| <code><a href="#@functionless/projen.TypeScriptCompilerOptionsExtended.property.esModuleInterop">esModuleInterop</a></code> | <code>boolean</code> | Emit __importStar and __importDefault helpers for runtime babel ecosystem compatibility and enable --allowSyntheticDefaultImports for typesystem compatibility. |
+| <code><a href="#@functionless/projen.TypeScriptCompilerOptionsExtended.property.experimentalDecorators">experimentalDecorators</a></code> | <code>boolean</code> | Enables experimental support for decorators, which is in stage 2 of the TC39 standardization process. |
+| <code><a href="#@functionless/projen.TypeScriptCompilerOptionsExtended.property.forceConsistentCasingInFileNames">forceConsistentCasingInFileNames</a></code> | <code>boolean</code> | Disallow inconsistently-cased references to the same file. |
+| <code><a href="#@functionless/projen.TypeScriptCompilerOptionsExtended.property.inlineSourceMap">inlineSourceMap</a></code> | <code>boolean</code> | When set, instead of writing out a .js.map file to provide source maps, TypeScript will embed the source map content in the .js files. |
+| <code><a href="#@functionless/projen.TypeScriptCompilerOptionsExtended.property.inlineSources">inlineSources</a></code> | <code>boolean</code> | When set, TypeScript will include the original content of the .ts file as an embedded string in the source map. This is often useful in the same cases as inlineSourceMap. |
+| <code><a href="#@functionless/projen.TypeScriptCompilerOptionsExtended.property.isolatedModules">isolatedModules</a></code> | <code>boolean</code> | Perform additional checks to ensure that separate compilation (such as with transpileModule or @babel/plugin-transform-typescript) would be safe. |
+| <code><a href="#@functionless/projen.TypeScriptCompilerOptionsExtended.property.jsx">jsx</a></code> | <code>projen.javascript.TypeScriptJsxMode</code> | Support JSX in .tsx files: "react", "preserve", "react-native" etc. |
+| <code><a href="#@functionless/projen.TypeScriptCompilerOptionsExtended.property.lib">lib</a></code> | <code>string[]</code> | Reference for type definitions / libraries to use (eg. |
+| <code><a href="#@functionless/projen.TypeScriptCompilerOptionsExtended.property.module">module</a></code> | <code>string</code> | Sets the module system for the program. |
+| <code><a href="#@functionless/projen.TypeScriptCompilerOptionsExtended.property.moduleResolution">moduleResolution</a></code> | <code>projen.javascript.TypeScriptModuleResolution</code> | Determine how modules get resolved. |
+| <code><a href="#@functionless/projen.TypeScriptCompilerOptionsExtended.property.noEmit">noEmit</a></code> | <code>boolean</code> | Do not emit outputs. |
+| <code><a href="#@functionless/projen.TypeScriptCompilerOptionsExtended.property.noEmitOnError">noEmitOnError</a></code> | <code>boolean</code> | Do not emit compiler output files like JavaScript source code, source-maps or declarations if any errors were reported. |
+| <code><a href="#@functionless/projen.TypeScriptCompilerOptionsExtended.property.noFallthroughCasesInSwitch">noFallthroughCasesInSwitch</a></code> | <code>boolean</code> | Report errors for fallthrough cases in switch statements. |
+| <code><a href="#@functionless/projen.TypeScriptCompilerOptionsExtended.property.noImplicitAny">noImplicitAny</a></code> | <code>boolean</code> | In some cases where no type annotations are present, TypeScript will fall back to a type of any for a variable when it cannot infer the type. |
+| <code><a href="#@functionless/projen.TypeScriptCompilerOptionsExtended.property.noImplicitReturns">noImplicitReturns</a></code> | <code>boolean</code> | When enabled, TypeScript will check all code paths in a function to ensure they return a value. |
+| <code><a href="#@functionless/projen.TypeScriptCompilerOptionsExtended.property.noImplicitThis">noImplicitThis</a></code> | <code>boolean</code> | Raise error on ‘this’ expressions with an implied ‘any’ type. |
+| <code><a href="#@functionless/projen.TypeScriptCompilerOptionsExtended.property.noPropertyAccessFromIndexSignature">noPropertyAccessFromIndexSignature</a></code> | <code>boolean</code> | Raise error on use of the dot syntax to access fields which are not defined. |
+| <code><a href="#@functionless/projen.TypeScriptCompilerOptionsExtended.property.noUncheckedIndexedAccess">noUncheckedIndexedAccess</a></code> | <code>boolean</code> | Raise error when accessing indexes on objects with unknown keys defined in index signatures. |
+| <code><a href="#@functionless/projen.TypeScriptCompilerOptionsExtended.property.noUnusedLocals">noUnusedLocals</a></code> | <code>boolean</code> | Report errors on unused local variables. |
+| <code><a href="#@functionless/projen.TypeScriptCompilerOptionsExtended.property.noUnusedParameters">noUnusedParameters</a></code> | <code>boolean</code> | Report errors on unused parameters in functions. |
+| <code><a href="#@functionless/projen.TypeScriptCompilerOptionsExtended.property.outDir">outDir</a></code> | <code>string</code> | Output directory for the compiled files. |
+| <code><a href="#@functionless/projen.TypeScriptCompilerOptionsExtended.property.paths">paths</a></code> | <code>{[ key: string ]: string[]}</code> | A series of entries which re-map imports to lookup locations relative to the baseUrl, there is a larger coverage of paths in the handbook. |
+| <code><a href="#@functionless/projen.TypeScriptCompilerOptionsExtended.property.resolveJsonModule">resolveJsonModule</a></code> | <code>boolean</code> | Allows importing modules with a ‘.json’ extension, which is a common practice in node projects. This includes generating a type for the import based on the static JSON shape. |
+| <code><a href="#@functionless/projen.TypeScriptCompilerOptionsExtended.property.rootDir">rootDir</a></code> | <code>string</code> | Specifies the root directory of input files. |
+| <code><a href="#@functionless/projen.TypeScriptCompilerOptionsExtended.property.skipLibCheck">skipLibCheck</a></code> | <code>boolean</code> | Skip type checking of all declaration files (*.d.ts). |
+| <code><a href="#@functionless/projen.TypeScriptCompilerOptionsExtended.property.strict">strict</a></code> | <code>boolean</code> | The strict flag enables a wide range of type checking behavior that results in stronger guarantees of program correctness. |
+| <code><a href="#@functionless/projen.TypeScriptCompilerOptionsExtended.property.strictNullChecks">strictNullChecks</a></code> | <code>boolean</code> | When strictNullChecks is false, null and undefined are effectively ignored by the language. |
+| <code><a href="#@functionless/projen.TypeScriptCompilerOptionsExtended.property.strictPropertyInitialization">strictPropertyInitialization</a></code> | <code>boolean</code> | When set to true, TypeScript will raise an error when a class property was declared but not set in the constructor. |
+| <code><a href="#@functionless/projen.TypeScriptCompilerOptionsExtended.property.stripInternal">stripInternal</a></code> | <code>boolean</code> | Do not emit declarations for code that has an @internal annotation in it’s JSDoc comment. |
+| <code><a href="#@functionless/projen.TypeScriptCompilerOptionsExtended.property.target">target</a></code> | <code>string</code> | Modern browsers support all ES6 features, so ES6 is a good choice. |
+| <code><a href="#@functionless/projen.TypeScriptCompilerOptionsExtended.property.plugins">plugins</a></code> | <code><a href="#@functionless/projen.TypeScriptPlugin">TypeScriptPlugin</a>[]</code> | A list of Language Service and ts-patch plugins to run as part of TypeScript compilation. |
+
+---
+
+##### `allowJs`<sup>Optional</sup> <a name="allowJs" id="@functionless/projen.TypeScriptCompilerOptionsExtended.property.allowJs"></a>
+
+```typescript
+public readonly allowJs: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Allow JavaScript files to be compiled.
+
+---
+
+##### `allowSyntheticDefaultImports`<sup>Optional</sup> <a name="allowSyntheticDefaultImports" id="@functionless/projen.TypeScriptCompilerOptionsExtended.property.allowSyntheticDefaultImports"></a>
+
+```typescript
+public readonly allowSyntheticDefaultImports: boolean;
+```
+
+- *Type:* boolean
+
+Allow default imports from modules with no default export.
+
+This does not affect code emit, just typechecking.
+
+---
+
+##### `alwaysStrict`<sup>Optional</sup> <a name="alwaysStrict" id="@functionless/projen.TypeScriptCompilerOptionsExtended.property.alwaysStrict"></a>
+
+```typescript
+public readonly alwaysStrict: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Ensures that your files are parsed in the ECMAScript strict mode, and emit “use strict” for each source file.
+
+---
+
+##### `baseUrl`<sup>Optional</sup> <a name="baseUrl" id="@functionless/projen.TypeScriptCompilerOptionsExtended.property.baseUrl"></a>
+
+```typescript
+public readonly baseUrl: string;
+```
+
+- *Type:* string
+
+Lets you set a base directory to resolve non-absolute module names.
+
+You can define a root folder where you can do absolute file resolution.
+
+---
+
+##### `declaration`<sup>Optional</sup> <a name="declaration" id="@functionless/projen.TypeScriptCompilerOptionsExtended.property.declaration"></a>
+
+```typescript
+public readonly declaration: boolean;
+```
+
+- *Type:* boolean
+
+To be specified along with the above.
+
+---
+
+##### `declarationDir`<sup>Optional</sup> <a name="declarationDir" id="@functionless/projen.TypeScriptCompilerOptionsExtended.property.declarationDir"></a>
+
+```typescript
+public readonly declarationDir: string;
+```
+
+- *Type:* string
+
+Offers a way to configure the root directory for where declaration files are emitted.
+
+---
+
+##### `emitDecoratorMetadata`<sup>Optional</sup> <a name="emitDecoratorMetadata" id="@functionless/projen.TypeScriptCompilerOptionsExtended.property.emitDecoratorMetadata"></a>
+
+```typescript
+public readonly emitDecoratorMetadata: boolean;
+```
+
+- *Type:* boolean
+- *Default:* undefined
+
+Enables experimental support for decorators, which is in stage 2 of the TC39 standardization process.
+
+Decorators are a language feature which hasn’t yet been fully ratified into the JavaScript specification.
+This means that the implementation version in TypeScript may differ from the implementation in JavaScript when it it decided by TC39.
+You can find out more about decorator support in TypeScript in the handbook.
+
+> [https://www.typescriptlang.org/docs/handbook/decorators.html](https://www.typescriptlang.org/docs/handbook/decorators.html)
+
+---
+
+##### `esModuleInterop`<sup>Optional</sup> <a name="esModuleInterop" id="@functionless/projen.TypeScriptCompilerOptionsExtended.property.esModuleInterop"></a>
+
+```typescript
+public readonly esModuleInterop: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Emit __importStar and __importDefault helpers for runtime babel ecosystem compatibility and enable --allowSyntheticDefaultImports for typesystem compatibility.
+
+---
+
+##### `experimentalDecorators`<sup>Optional</sup> <a name="experimentalDecorators" id="@functionless/projen.TypeScriptCompilerOptionsExtended.property.experimentalDecorators"></a>
+
+```typescript
+public readonly experimentalDecorators: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Enables experimental support for decorators, which is in stage 2 of the TC39 standardization process.
+
+---
+
+##### `forceConsistentCasingInFileNames`<sup>Optional</sup> <a name="forceConsistentCasingInFileNames" id="@functionless/projen.TypeScriptCompilerOptionsExtended.property.forceConsistentCasingInFileNames"></a>
+
+```typescript
+public readonly forceConsistentCasingInFileNames: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Disallow inconsistently-cased references to the same file.
+
+---
+
+##### `inlineSourceMap`<sup>Optional</sup> <a name="inlineSourceMap" id="@functionless/projen.TypeScriptCompilerOptionsExtended.property.inlineSourceMap"></a>
+
+```typescript
+public readonly inlineSourceMap: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+When set, instead of writing out a .js.map file to provide source maps, TypeScript will embed the source map content in the .js files.
+
+---
+
+##### `inlineSources`<sup>Optional</sup> <a name="inlineSources" id="@functionless/projen.TypeScriptCompilerOptionsExtended.property.inlineSources"></a>
+
+```typescript
+public readonly inlineSources: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+When set, TypeScript will include the original content of the .ts file as an embedded string in the source map. This is often useful in the same cases as inlineSourceMap.
+
+---
+
+##### `isolatedModules`<sup>Optional</sup> <a name="isolatedModules" id="@functionless/projen.TypeScriptCompilerOptionsExtended.property.isolatedModules"></a>
+
+```typescript
+public readonly isolatedModules: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Perform additional checks to ensure that separate compilation (such as with transpileModule or @babel/plugin-transform-typescript) would be safe.
+
+---
+
+##### `jsx`<sup>Optional</sup> <a name="jsx" id="@functionless/projen.TypeScriptCompilerOptionsExtended.property.jsx"></a>
+
+```typescript
+public readonly jsx: TypeScriptJsxMode;
+```
+
+- *Type:* projen.javascript.TypeScriptJsxMode
+- *Default:* undefined
+
+Support JSX in .tsx files: "react", "preserve", "react-native" etc.
+
+---
+
+##### `lib`<sup>Optional</sup> <a name="lib" id="@functionless/projen.TypeScriptCompilerOptionsExtended.property.lib"></a>
+
+```typescript
+public readonly lib: string[];
+```
+
+- *Type:* string[]
+- *Default:* [ "es2018" ]
+
+Reference for type definitions / libraries to use (eg.
+
+ES2016, ES5, ES2018).
+
+---
+
+##### `module`<sup>Optional</sup> <a name="module" id="@functionless/projen.TypeScriptCompilerOptionsExtended.property.module"></a>
+
+```typescript
+public readonly module: string;
+```
+
+- *Type:* string
+- *Default:* "CommonJS"
+
+Sets the module system for the program.
+
+See https://www.typescriptlang.org/docs/handbook/modules.html#ambient-modules.
+
+---
+
+##### `moduleResolution`<sup>Optional</sup> <a name="moduleResolution" id="@functionless/projen.TypeScriptCompilerOptionsExtended.property.moduleResolution"></a>
+
+```typescript
+public readonly moduleResolution: TypeScriptModuleResolution;
+```
+
+- *Type:* projen.javascript.TypeScriptModuleResolution
+- *Default:* "node"
+
+Determine how modules get resolved.
+
+Either "Node" for Node.js/io.js style resolution, or "Classic".
+
+---
+
+##### `noEmit`<sup>Optional</sup> <a name="noEmit" id="@functionless/projen.TypeScriptCompilerOptionsExtended.property.noEmit"></a>
+
+```typescript
+public readonly noEmit: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Do not emit outputs.
+
+---
+
+##### `noEmitOnError`<sup>Optional</sup> <a name="noEmitOnError" id="@functionless/projen.TypeScriptCompilerOptionsExtended.property.noEmitOnError"></a>
+
+```typescript
+public readonly noEmitOnError: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Do not emit compiler output files like JavaScript source code, source-maps or declarations if any errors were reported.
+
+---
+
+##### `noFallthroughCasesInSwitch`<sup>Optional</sup> <a name="noFallthroughCasesInSwitch" id="@functionless/projen.TypeScriptCompilerOptionsExtended.property.noFallthroughCasesInSwitch"></a>
+
+```typescript
+public readonly noFallthroughCasesInSwitch: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Report errors for fallthrough cases in switch statements.
+
+Ensures that any non-empty
+case inside a switch statement includes either break or return. This means you won’t
+accidentally ship a case fallthrough bug.
+
+---
+
+##### `noImplicitAny`<sup>Optional</sup> <a name="noImplicitAny" id="@functionless/projen.TypeScriptCompilerOptionsExtended.property.noImplicitAny"></a>
+
+```typescript
+public readonly noImplicitAny: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+In some cases where no type annotations are present, TypeScript will fall back to a type of any for a variable when it cannot infer the type.
+
+---
+
+##### `noImplicitReturns`<sup>Optional</sup> <a name="noImplicitReturns" id="@functionless/projen.TypeScriptCompilerOptionsExtended.property.noImplicitReturns"></a>
+
+```typescript
+public readonly noImplicitReturns: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+When enabled, TypeScript will check all code paths in a function to ensure they return a value.
+
+---
+
+##### `noImplicitThis`<sup>Optional</sup> <a name="noImplicitThis" id="@functionless/projen.TypeScriptCompilerOptionsExtended.property.noImplicitThis"></a>
+
+```typescript
+public readonly noImplicitThis: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Raise error on ‘this’ expressions with an implied ‘any’ type.
+
+---
+
+##### `noPropertyAccessFromIndexSignature`<sup>Optional</sup> <a name="noPropertyAccessFromIndexSignature" id="@functionless/projen.TypeScriptCompilerOptionsExtended.property.noPropertyAccessFromIndexSignature"></a>
+
+```typescript
+public readonly noPropertyAccessFromIndexSignature: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Raise error on use of the dot syntax to access fields which are not defined.
+
+---
+
+##### `noUncheckedIndexedAccess`<sup>Optional</sup> <a name="noUncheckedIndexedAccess" id="@functionless/projen.TypeScriptCompilerOptionsExtended.property.noUncheckedIndexedAccess"></a>
+
+```typescript
+public readonly noUncheckedIndexedAccess: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Raise error when accessing indexes on objects with unknown keys defined in index signatures.
+
+---
+
+##### `noUnusedLocals`<sup>Optional</sup> <a name="noUnusedLocals" id="@functionless/projen.TypeScriptCompilerOptionsExtended.property.noUnusedLocals"></a>
+
+```typescript
+public readonly noUnusedLocals: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Report errors on unused local variables.
+
+---
+
+##### `noUnusedParameters`<sup>Optional</sup> <a name="noUnusedParameters" id="@functionless/projen.TypeScriptCompilerOptionsExtended.property.noUnusedParameters"></a>
+
+```typescript
+public readonly noUnusedParameters: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Report errors on unused parameters in functions.
+
+---
+
+##### `outDir`<sup>Optional</sup> <a name="outDir" id="@functionless/projen.TypeScriptCompilerOptionsExtended.property.outDir"></a>
+
+```typescript
+public readonly outDir: string;
+```
+
+- *Type:* string
+
+Output directory for the compiled files.
+
+---
+
+##### `paths`<sup>Optional</sup> <a name="paths" id="@functionless/projen.TypeScriptCompilerOptionsExtended.property.paths"></a>
+
+```typescript
+public readonly paths: {[ key: string ]: string[]};
+```
+
+- *Type:* {[ key: string ]: string[]}
+
+A series of entries which re-map imports to lookup locations relative to the baseUrl, there is a larger coverage of paths in the handbook.
+
+paths lets you declare how TypeScript should resolve an import in your require/imports.
+
+---
+
+##### `resolveJsonModule`<sup>Optional</sup> <a name="resolveJsonModule" id="@functionless/projen.TypeScriptCompilerOptionsExtended.property.resolveJsonModule"></a>
+
+```typescript
+public readonly resolveJsonModule: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Allows importing modules with a ‘.json’ extension, which is a common practice in node projects. This includes generating a type for the import based on the static JSON shape.
+
+---
+
+##### `rootDir`<sup>Optional</sup> <a name="rootDir" id="@functionless/projen.TypeScriptCompilerOptionsExtended.property.rootDir"></a>
+
+```typescript
+public readonly rootDir: string;
+```
+
+- *Type:* string
+
+Specifies the root directory of input files.
+
+Only use to control the output directory structure with `outDir`.
+
+---
+
+##### `skipLibCheck`<sup>Optional</sup> <a name="skipLibCheck" id="@functionless/projen.TypeScriptCompilerOptionsExtended.property.skipLibCheck"></a>
+
+```typescript
+public readonly skipLibCheck: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Skip type checking of all declaration files (*.d.ts).
+
+---
+
+##### `strict`<sup>Optional</sup> <a name="strict" id="@functionless/projen.TypeScriptCompilerOptionsExtended.property.strict"></a>
+
+```typescript
+public readonly strict: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+The strict flag enables a wide range of type checking behavior that results in stronger guarantees of program correctness.
+
+Turning this on is equivalent to enabling all of the strict mode family
+options, which are outlined below. You can then turn off individual strict mode family checks as
+needed.
+
+---
+
+##### `strictNullChecks`<sup>Optional</sup> <a name="strictNullChecks" id="@functionless/projen.TypeScriptCompilerOptionsExtended.property.strictNullChecks"></a>
+
+```typescript
+public readonly strictNullChecks: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+When strictNullChecks is false, null and undefined are effectively ignored by the language.
+
+This can lead to unexpected errors at runtime.
+When strictNullChecks is true, null and undefined have their own distinct types and you’ll
+get a type error if you try to use them where a concrete value is expected.
+
+---
+
+##### `strictPropertyInitialization`<sup>Optional</sup> <a name="strictPropertyInitialization" id="@functionless/projen.TypeScriptCompilerOptionsExtended.property.strictPropertyInitialization"></a>
+
+```typescript
+public readonly strictPropertyInitialization: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+When set to true, TypeScript will raise an error when a class property was declared but not set in the constructor.
+
+---
+
+##### `stripInternal`<sup>Optional</sup> <a name="stripInternal" id="@functionless/projen.TypeScriptCompilerOptionsExtended.property.stripInternal"></a>
+
+```typescript
+public readonly stripInternal: boolean;
+```
+
+- *Type:* boolean
+- *Default:* true
+
+Do not emit declarations for code that has an @internal annotation in it’s JSDoc comment.
+
+---
+
+##### `target`<sup>Optional</sup> <a name="target" id="@functionless/projen.TypeScriptCompilerOptionsExtended.property.target"></a>
+
+```typescript
+public readonly target: string;
+```
+
+- *Type:* string
+- *Default:* "ES2018"
+
+Modern browsers support all ES6 features, so ES6 is a good choice.
+
+You might choose to set
+a lower target if your code is deployed to older environments, or a higher target if your
+code is guaranteed to run in newer environments.
+
+---
+
+##### `plugins`<sup>Optional</sup> <a name="plugins" id="@functionless/projen.TypeScriptCompilerOptionsExtended.property.plugins"></a>
+
+```typescript
+public readonly plugins: TypeScriptPlugin[];
+```
+
+- *Type:* <a href="#@functionless/projen.TypeScriptPlugin">TypeScriptPlugin</a>[]
+
+A list of Language Service and ts-patch plugins to run as part of TypeScript compilation.
+
+---
+
+### TypeScriptPlugin <a name="TypeScriptPlugin" id="@functionless/projen.TypeScriptPlugin"></a>
+
+Configures a Language Service or Transformer Plugin to run as part of TypeScript compilation.
+
+> [https://github.com/microsoft/TypeScript/wiki/Writing-a-Language-Service-Plugin](https://github.com/microsoft/TypeScript/wiki/Writing-a-Language-Service-Plugin)
+
+#### Initializer <a name="Initializer" id="@functionless/projen.TypeScriptPlugin.Initializer"></a>
+
+```typescript
+import { TypeScriptPlugin } from '@functionless/projen'
+
+const typeScriptPlugin: TypeScriptPlugin = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@functionless/projen.TypeScriptPlugin.property.name">name</a></code> | <code>string</code> | Name of a NPM module that implements the TypeScript Language Service Plugin interface. |
+| <code><a href="#@functionless/projen.TypeScriptPlugin.property.transform">transform</a></code> | <code>string</code> | Path to a module implementing the ts-patch Transformer Plugin interface. |
+
+---
+
+##### `name`<sup>Optional</sup> <a name="name" id="@functionless/projen.TypeScriptPlugin.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+Name of a NPM module that implements the TypeScript Language Service Plugin interface.
+
+It must be the name of a NPM module and cannot be a path to an individual JS file.
+
+Valid:
+```ts
+{
+   name: "@functionless/language-service"
+}
+```
+
+Invalid:
+```ts
+{
+   name: "@functionless/language-service/lib/plugin"
+}
+```
+
+> [https://github.com/microsoft/TypeScript/wiki/Writing-a-Language-Service-Plugin](https://github.com/microsoft/TypeScript/wiki/Writing-a-Language-Service-Plugin)
+
+---
+
+##### `transform`<sup>Optional</sup> <a name="transform" id="@functionless/projen.TypeScriptPlugin.property.transform"></a>
+
+```typescript
+public readonly transform: string;
+```
+
+- *Type:* string
+
+Path to a module implementing the ts-patch Transformer Plugin interface.
+
+Example:
+```ts
+{
+   transform: "functionless/lib/compile"
+}
+```
+
+> [https://github.com/nonara/ts-patch](https://github.com/nonara/ts-patch)
+
+---
 
 ## Classes <a name="Classes" id="Classes"></a>
 
