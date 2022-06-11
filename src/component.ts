@@ -85,6 +85,7 @@ export class Functionless extends Component {
   static readonly dependencies = [
     Functionless.coreDependency,
     "@aws-cdk/aws-appsync-alpha",
+    "typesafe-dynamodb",
   ];
   static readonly devDependencies = [
     "ts-patch",
