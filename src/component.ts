@@ -11,8 +11,7 @@ import { TypeScriptProject } from "projen/lib/typescript";
  *
  * @see https://github.com/projen/projen/issues/1482
  */
-export interface TypeScriptCompilerOptionsExtended
-  extends TypeScriptCompilerOptions {
+export interface TypeScriptCompilerPlugins {
   /**
    * A list of Language Service and ts-patch plugins to run as part of TypeScript compilation.
    */
@@ -116,7 +115,8 @@ export class Functionless extends Component {
       config:
         | undefined
         | (TypescriptConfig & {
-            compilerOptions: TypeScriptCompilerOptionsExtended;
+            compilerOptions: TypeScriptCompilerOptions &
+              TypeScriptCompilerPlugins;
           }),
       plugins: TypeScriptPlugin[]
     ) {
