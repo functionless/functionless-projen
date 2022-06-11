@@ -98,29 +98,35 @@ export class Functionless extends Component {
     this.tsProject.addDevDeps(...Functionless.devDependencies);
     this.tsProject.addDeps(...Functionless.dependencies);
 
-    configureTsConfig(this.tsProject.tsconfig);
-    configureTsConfig(this.tsProject.tsconfigDev);
+    const transformerPlugin = {
+      transform: `${Functionless.coreDependency}/lib/compile`,
+    };
+
+    const languageServicePlugin = {
+      name: Functionless.languageServiceDependency,
+    };
+
+    configureTsConfig(this.tsProject.tsconfig, [
+      transformerPlugin,
+      languageServicePlugin,
+    ]);
+    configureTsConfig(this.tsProject.tsconfigDev, [transformerPlugin]);
 
     function configureTsConfig(
-      config?: TypescriptConfig & {
-        compilerOptions: TypeScriptCompilerOptionsExtended;
-      }
+      config:
+        | undefined
+        | (TypescriptConfig & {
+            compilerOptions: TypeScriptCompilerOptionsExtended;
+          }),
+      plugins: TypeScriptPlugin[]
     ) {
       if (config) {
-        const plugins =
-          // @ts-ignore - hack: write to readonly field (JSII forces us to use readonly)
-          (config.compilerOptions.plugins = config.compilerOptions.plugins
-            ? // copy the array because tsconfig and tsconfigDev are sharing the same data
-              // we don't want to rely on that always being true
-              [...config.compilerOptions.plugins]
-            : []);
-
-        plugins.push({
-          transform: `${Functionless.coreDependency}/lib/compile`,
-        });
-        plugins.push({
-          name: Functionless.languageServiceDependency,
-        });
+        // @ts-ignore - hack: write to readonly field (JSII forces us to use readonly)
+        config.compilerOptions.plugins = config.compilerOptions.plugins
+          ? // copy the array because tsconfig and tsconfigDev are sharing the same data
+            // we don't want to rely on that always being true
+            [...config.compilerOptions.plugins, ...plugins]
+          : [...plugins];
       }
     }
 
