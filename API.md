@@ -1,6 +1,115 @@
 # API Reference <a name="API Reference" id="api-reference"></a>
 
 
+## Structs <a name="Structs" id="Structs"></a>
+
+### TypeScriptCompilerPlugins <a name="TypeScriptCompilerPlugins" id="@functionless/projen.TypeScriptCompilerPlugins"></a>
+
+Extends the {@link TypeScriptCompilerOptions} interface with the {@link plugins} property for configuring Language Service Plugins and ts-patch plugins.
+
+> [https://github.com/projen/projen/issues/1482](https://github.com/projen/projen/issues/1482)
+
+#### Initializer <a name="Initializer" id="@functionless/projen.TypeScriptCompilerPlugins.Initializer"></a>
+
+```typescript
+import { TypeScriptCompilerPlugins } from '@functionless/projen'
+
+const typeScriptCompilerPlugins: TypeScriptCompilerPlugins = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@functionless/projen.TypeScriptCompilerPlugins.property.plugins">plugins</a></code> | <code><a href="#@functionless/projen.TypeScriptPlugin">TypeScriptPlugin</a>[]</code> | A list of Language Service and ts-patch plugins to run as part of TypeScript compilation. |
+
+---
+
+##### `plugins`<sup>Optional</sup> <a name="plugins" id="@functionless/projen.TypeScriptCompilerPlugins.property.plugins"></a>
+
+```typescript
+public readonly plugins: TypeScriptPlugin[];
+```
+
+- *Type:* <a href="#@functionless/projen.TypeScriptPlugin">TypeScriptPlugin</a>[]
+
+A list of Language Service and ts-patch plugins to run as part of TypeScript compilation.
+
+---
+
+### TypeScriptPlugin <a name="TypeScriptPlugin" id="@functionless/projen.TypeScriptPlugin"></a>
+
+Configures a Language Service or Transformer Plugin to run as part of TypeScript compilation.
+
+> [https://github.com/microsoft/TypeScript/wiki/Writing-a-Language-Service-Plugin](https://github.com/microsoft/TypeScript/wiki/Writing-a-Language-Service-Plugin)
+
+#### Initializer <a name="Initializer" id="@functionless/projen.TypeScriptPlugin.Initializer"></a>
+
+```typescript
+import { TypeScriptPlugin } from '@functionless/projen'
+
+const typeScriptPlugin: TypeScriptPlugin = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@functionless/projen.TypeScriptPlugin.property.name">name</a></code> | <code>string</code> | Name of a NPM module that implements the TypeScript Language Service Plugin interface. |
+| <code><a href="#@functionless/projen.TypeScriptPlugin.property.transform">transform</a></code> | <code>string</code> | Path to a module implementing the ts-patch Transformer Plugin interface. |
+
+---
+
+##### `name`<sup>Optional</sup> <a name="name" id="@functionless/projen.TypeScriptPlugin.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+Name of a NPM module that implements the TypeScript Language Service Plugin interface.
+
+It must be the name of a NPM module and cannot be a path to an individual JS file.
+
+Valid:
+```ts
+{
+   name: "@functionless/language-service"
+}
+```
+
+Invalid:
+```ts
+{
+   name: "@functionless/language-service/lib/plugin"
+}
+```
+
+> [https://github.com/microsoft/TypeScript/wiki/Writing-a-Language-Service-Plugin](https://github.com/microsoft/TypeScript/wiki/Writing-a-Language-Service-Plugin)
+
+---
+
+##### `transform`<sup>Optional</sup> <a name="transform" id="@functionless/projen.TypeScriptPlugin.property.transform"></a>
+
+```typescript
+public readonly transform: string;
+```
+
+- *Type:* string
+
+Path to a module implementing the ts-patch Transformer Plugin interface.
+
+Example:
+```ts
+{
+   transform: "functionless/lib/compile"
+}
+```
+
+> [https://github.com/nonara/ts-patch](https://github.com/nonara/ts-patch)
+
+---
 
 ## Classes <a name="Classes" id="Classes"></a>
 
