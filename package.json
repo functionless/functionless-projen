@@ -1,6 +1,6 @@
 {
   "name": "@functionless/projen",
-  "description": "projen templates for Functionless projects",
+  "description": "Projen templates for Functionless projects",
   "repository": {
     "type": "git",
     "url": "https://github.com/functionless/projen.git"

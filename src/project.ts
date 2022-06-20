@@ -52,14 +52,12 @@ interface Person {
   name: string;
 }
 
-const table = new Table<Person, "id">(
-  new aws_dynamodb.Table(stack, "Table", {
-    partitionKey: {
-      name: "itemId",
-      type: aws_dynamodb.AttributeType.STRING,
-    },
-  })
-);
+const table = new Table<Person, "id">(stack, "Table", {
+  partitionKey: {
+    name: "id",
+    type: aws_dynamodb.AttributeType.STRING,
+  },
+});
 
 const api = new appsync.GraphqlApi(stack, "api", {
   name: "api",
@@ -83,9 +81,11 @@ api.addQuery(
   })
 );
 
-const resolver = new AppsyncResolver(($context) => {
+const resolver = new AppsyncResolver<{id: string}, Person>(($context) => {
   return table.getItem({
-    key: $context.arguments.itemId,
+    key: {
+      S: $context.arguments.id
+    },
   });
 });
 

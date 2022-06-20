@@ -3,7 +3,7 @@ const { cdk } = require("projen");
 const project = new cdk.JsiiProject({
   defaultReleaseBranch: "main",
   name: "@functionless/projen",
-  description: "projen templates for Functionless projects",
+  description: "Projen templates for Functionless projects",
   author: "brendan@functionless.org",
   repository: "https://github.com/functionless/projen.git",
 
