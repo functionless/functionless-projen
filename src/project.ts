@@ -81,18 +81,23 @@ api.addQuery(
   })
 );
 
-const resolver = new AppsyncResolver<{id: string}, Person>(($context) => {
-  return table.getItem({
-    key: {
-      S: $context.arguments.id
-    },
-  });
-});
-
-resolver.addResolver(api, {
-  typeName: "Query",
-  fieldName: "getPerson",
-});`;
+new AppsyncResolver<{ id: string }, Person>(
+  api,
+  "getPerson",
+  {
+    fieldName: "getPerson",
+    typeName: "Query",
+  },
+  ($context) => {
+    return table.appsync.getItem({
+      key: {
+        id: {
+          S: $context.arguments.id,
+        },
+      },
+    });
+  }
+);`;
 
     fs.mkdirpSync(srcdir);
     fs.writeFileSync(path.join(srcdir, this.appProject.appEntrypoint), srcCode);
