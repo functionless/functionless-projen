@@ -12,7 +12,12 @@ test("add dependency and ts plugin", () => {
     expect(project.deps.getDependency(dep)).toBeTruthy()
   );
   Functionless.devDependencies.forEach((dep) =>
-    expect(project.deps.getDependency(dep, DependencyType.BUILD)).toBeTruthy()
+    expect(
+      project.deps.getDependency(
+        dep.startsWith("@swc/core") ? "@swc/core" : dep,
+        DependencyType.BUILD
+      )
+    ).toBeTruthy()
   );
 
   expect((project.tsconfig!.compilerOptions as any).plugins).toEqual([
