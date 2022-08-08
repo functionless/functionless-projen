@@ -90,7 +90,7 @@ export class Functionless extends Component {
   ];
   static readonly devDependencies = [
     "@swc/cli",
-    "@swc/core",
+    "@swc/core@1.2.218",
     "@swc/register",
     "@swc/jest",
     Functionless.astReflectionDependency,
@@ -103,6 +103,7 @@ export class Functionless extends Component {
     super(tsProject);
 
     this.swcrc = new JsonFile(tsProject, ".swcrc", {
+      marker: false,
       obj: {
         jsc: {
           parser: {
