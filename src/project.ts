@@ -9,13 +9,17 @@ import { Functionless } from "./component";
 export class FunctionlessProject extends awscdk.AwsCdkTypeScriptApp {
   constructor(options: awscdk.AwsCdkTypeScriptAppOptions) {
     super({
-      ...options,
       sampleCode: false,
       appEntrypoint: "app.ts",
+      ...options,
     });
 
     new SampleCode(this);
     new Functionless(this);
+    this.cdkConfig.json.addOverride(
+      "app",
+      `node -r '@swc/register' ${this.srcdir}/${this.appEntrypoint}`
+    );
   }
 }
 
