@@ -2,7 +2,7 @@ import { DependencyType } from "projen";
 import { TypeScriptProject } from "projen/lib/typescript";
 import { Functionless } from "../src";
 
-test("add dependency and ts plugin", () => {
+test("add dependency and swc plugin", () => {
   const project = new TypeScriptProject({
     name: "test",
     defaultReleaseBranch: "main",
@@ -28,11 +28,9 @@ test("add dependency and ts plugin", () => {
 
   expect((project.tsconfig!.compilerOptions as any).plugins).toEqual([
     { transform: "some other transform" },
-    { transform: `${Functionless.coreDependency}/lib/compile` },
     { name: Functionless.languageServiceDependency },
   ]);
   expect((project.tsconfigDev!.compilerOptions as any).plugins).toEqual([
     { transform: "some other transform" },
-    { transform: `${Functionless.coreDependency}/lib/compile` },
   ]);
 });
