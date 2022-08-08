@@ -31,7 +31,7 @@
     "projen": "npx projen"
   },
   "author": {
-    "name": "brendan@functionless.org",
+    "name": "sam@functionless.org",
     "organization": false
   },
   "devDependencies": {

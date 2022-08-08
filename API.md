@@ -179,6 +179,7 @@ Synthesizes files to the project output directory.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@functionless/projen.Functionless.property.project">project</a></code> | <code>projen.Project</code> | *No description.* |
+| <code><a href="#@functionless/projen.Functionless.property.swcrc">swcrc</a></code> | <code>projen.JsonFile</code> | *No description.* |
 | <code><a href="#@functionless/projen.Functionless.property.tsProject">tsProject</a></code> | <code>projen.typescript.TypeScriptProject</code> | *No description.* |
 
 ---
@@ -190,6 +191,16 @@ public readonly project: Project;
 ```
 
 - *Type:* projen.Project
+
+---
+
+##### `swcrc`<sup>Required</sup> <a name="swcrc" id="@functionless/projen.Functionless.property.swcrc"></a>
+
+```typescript
+public readonly swcrc: JsonFile;
+```
+
+- *Type:* projen.JsonFile
 
 ---
 
@@ -207,10 +218,21 @@ public readonly tsProject: TypeScriptProject;
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#@functionless/projen.Functionless.property.astReflectionDependency">astReflectionDependency</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#@functionless/projen.Functionless.property.coreDependency">coreDependency</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#@functionless/projen.Functionless.property.dependencies">dependencies</a></code> | <code>string[]</code> | *No description.* |
 | <code><a href="#@functionless/projen.Functionless.property.devDependencies">devDependencies</a></code> | <code>string[]</code> | *No description.* |
 | <code><a href="#@functionless/projen.Functionless.property.languageServiceDependency">languageServiceDependency</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `astReflectionDependency`<sup>Required</sup> <a name="astReflectionDependency" id="@functionless/projen.Functionless.property.astReflectionDependency"></a>
+
+```typescript
+public readonly astReflectionDependency: string;
+```
+
+- *Type:* string
 
 ---
 
@@ -830,6 +852,7 @@ The list of modules to depend on.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@functionless/projen.FunctionlessProject.property.buildTask">buildTask</a></code> | <code>projen.Task</code> | *No description.* |
+| <code><a href="#@functionless/projen.FunctionlessProject.property.commitGenerated">commitGenerated</a></code> | <code>boolean</code> | Whether to commit the managed files by default. |
 | <code><a href="#@functionless/projen.FunctionlessProject.property.compileTask">compileTask</a></code> | <code>projen.Task</code> | *No description.* |
 | <code><a href="#@functionless/projen.FunctionlessProject.property.components">components</a></code> | <code>projen.Component[]</code> | Returns all the components within this project. |
 | <code><a href="#@functionless/projen.FunctionlessProject.property.deps">deps</a></code> | <code>projen.Dependencies</code> | Project dependencies. |
@@ -902,6 +925,18 @@ public readonly buildTask: Task;
 ```
 
 - *Type:* projen.Task
+
+---
+
+##### `commitGenerated`<sup>Required</sup> <a name="commitGenerated" id="@functionless/projen.FunctionlessProject.property.commitGenerated"></a>
+
+```typescript
+public readonly commitGenerated: boolean;
+```
+
+- *Type:* boolean
+
+Whether to commit the managed files by default.
 
 ---
 
