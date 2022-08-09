@@ -1,4 +1,4 @@
-import { Component } from "projen";
+import { Component, JsonFile } from "projen";
 import {
   TypescriptConfig,
   TypeScriptCompilerOptions,
@@ -81,6 +81,7 @@ export interface TypeScriptPlugin {
  */
 export class Functionless extends Component {
   static readonly coreDependency = "functionless";
+  static readonly astReflectionDependency = "@functionless/ast-reflection";
   static readonly languageServiceDependency = "@functionless/language-service";
   static readonly dependencies = [
     Functionless.coreDependency,
@@ -88,29 +89,64 @@ export class Functionless extends Component {
     "typesafe-dynamodb",
   ];
   static readonly devDependencies = [
-    "ts-patch",
+    "@swc/cli",
+    "@swc/core@1.2.218",
+    "@swc/register",
+    "@swc/jest",
+    Functionless.astReflectionDependency,
     Functionless.languageServiceDependency,
   ];
+
+  readonly swcrc: JsonFile;
 
   constructor(readonly tsProject: TypeScriptProject) {
     super(tsProject);
 
+    this.swcrc = new JsonFile(tsProject, ".swcrc", {
+      marker: false,
+      obj: {
+        jsc: {
+          parser: {
+            syntax: "typescript",
+            dynamicImport: false,
+            decorators: false,
+            hidden: {
+              jest: true,
+            },
+          },
+          transform: null,
+          target: "es2021",
+          loose: false,
+          externalHelpers: false,
+          experimental: {
+            plugins: [["@functionless/ast-reflection", {}]],
+          },
+        },
+        minify: false,
+        sourceMaps: "inline",
+        module: {
+          type: "commonjs",
+        },
+      },
+    });
+
+    if (this.tsProject.jest) {
+      this.tsProject.jest.config.transform = {
+        "^.+\\.(t|j)sx?$": ["@swc/jest", {}],
+      };
+      delete this.tsProject.jest.config.globals;
+      delete this.tsProject.jest.config.preset;
+    }
+
     this.tsProject.addDevDeps(...Functionless.devDependencies);
     this.tsProject.addDeps(...Functionless.dependencies);
-
-    const transformerPlugin = {
-      transform: `${Functionless.coreDependency}/lib/compile`,
-    };
 
     const languageServicePlugin = {
       name: Functionless.languageServiceDependency,
     };
 
-    configureTsConfig(this.tsProject.tsconfig, [
-      transformerPlugin,
-      languageServicePlugin,
-    ]);
-    configureTsConfig(this.tsProject.tsconfigDev, [transformerPlugin]);
+    configureTsConfig(this.tsProject.tsconfig, [languageServicePlugin]);
+    configureTsConfig(this.tsProject.tsconfigDev, []);
 
     function configureTsConfig(
       config:
@@ -130,9 +166,5 @@ export class Functionless extends Component {
           : [...plugins];
       }
     }
-
-    this.tsProject.addTask("prepare", {
-      exec: "ts-patch install -s",
-    });
   }
 }
