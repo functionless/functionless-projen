@@ -81,7 +81,6 @@ export interface TypeScriptPlugin {
  */
 export class Functionless extends Component {
   static readonly coreDependency = "functionless";
-  static readonly astReflectionDependency = "@functionless/ast-reflection";
   static readonly languageServiceDependency = "@functionless/language-service";
   static readonly dependencies = [
     Functionless.coreDependency,
@@ -89,11 +88,7 @@ export class Functionless extends Component {
     "typesafe-dynamodb",
   ];
   static readonly devDependencies = [
-    "@swc/cli",
-    "@swc/core@1.2.218",
-    "@swc/register",
     "@swc/jest",
-    Functionless.astReflectionDependency,
     Functionless.languageServiceDependency,
   ];
 
