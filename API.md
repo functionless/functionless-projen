@@ -218,21 +218,10 @@ public readonly tsProject: TypeScriptProject;
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@functionless/projen.Functionless.property.astReflectionDependency">astReflectionDependency</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#@functionless/projen.Functionless.property.coreDependency">coreDependency</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#@functionless/projen.Functionless.property.dependencies">dependencies</a></code> | <code>string[]</code> | *No description.* |
 | <code><a href="#@functionless/projen.Functionless.property.devDependencies">devDependencies</a></code> | <code>string[]</code> | *No description.* |
 | <code><a href="#@functionless/projen.Functionless.property.languageServiceDependency">languageServiceDependency</a></code> | <code>string</code> | *No description.* |
-
----
-
-##### `astReflectionDependency`<sup>Required</sup> <a name="astReflectionDependency" id="@functionless/projen.Functionless.property.astReflectionDependency"></a>
-
-```typescript
-public readonly astReflectionDependency: string;
-```
-
-- *Type:* string
 
 ---
 
